@@ -1,3 +1,5 @@
+using Gurpinder_Windows.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,7 +26,10 @@ namespace Gurpinder_Windows
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-        }
+            services.AddDbContext<Gurpinder_WindowsContext>(options =>
+   options.UseSqlServer(Configuration.GetConnectionString("Gurpinder_WindowsContext")));
+        
+    }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
