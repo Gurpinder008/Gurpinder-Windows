@@ -1,0 +1,14 @@
+﻿
+body {
+    background-color: gray;
+}
+
+h1 {
+    font-size: 24px;
+    color: rgb(235 118 19);
+}
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: white
+}

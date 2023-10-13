@@ -6,6 +6,41 @@
     <title>@ViewData["Title"] - Gurpinder_Windows</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .navbar-brand{
+            color: rgb(235 118 19);
+        }
+        /* Navigation menu styling */
+        .navbar-collapse {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item {
+            margin-right: 15px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: gray;/*efault font color */
+            font-family: Arial, sans-serif; /* Default font style */
+            /* Hover effect */
+            transition: color 0.3s,background-color: 0.3s;
+        }
+
+            .nav-link:hover {
+                color: rgb(235 118 19);
+                font-weight: bold; /* Font style on hover */
+                background-color: rgb(235 118 19);
+            }
+
+            
+    </style>
 </head>
 <body>
     <header>
