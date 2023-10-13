@@ -22,6 +22,10 @@ namespace Gurpinder_Windows.Controllers
         {
             return View();
         }
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

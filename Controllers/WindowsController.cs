@@ -20,17 +20,34 @@ namespace Gurpinder_Windows.Controllers
         }
 
         // GET: Windows
-        public async Task<IActionResult> Index(string searchString)
+        
+        public async Task<IActionResult> Index(string windowStyle, string searchString)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> styleQuery = from m in _context.Window
+                                            orderby m.Style
+                                            select m.Style;
+
             var windows = from m in _context.Window
                          select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 windows = windows.Where(s => s.Name.Contains(searchString));
             }
 
-            return View(await windows.ToListAsync());
+            if (!string.IsNullOrEmpty(windowStyle))
+            {
+                windows = windows.Where(x => x.Style == windowStyle);
+            }
+
+            var windowStyleVM = new WindowStyleViewModel
+            {
+                Styles = new SelectList(await styleQuery.Distinct().ToListAsync()),
+                Windows = await windows.ToListAsync()
+            };
+
+            return View(windowStyleVM);
         }
 
         // GET: Windows/Details/5

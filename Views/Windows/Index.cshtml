@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Gurpinder_Windows.Models.Window>
+﻿@model Gurpinder_Windows.Models.WindowStyleViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -12,7 +12,11 @@
 
 <form asp-controller="Windows" asp-action="Index" method="get">
     <p>
-        Name: <input type="text" name="SearchString" />
+        <select asp-for="WindowStyle" asp-items="Model.Styles">
+            <option value="">All</option>
+        </select>
+
+        Name: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -21,53 +25,54 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Windows[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Style)
+                @Html.DisplayNameFor(model => model.Windows[0].Style)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Material)
+                @Html.DisplayNameFor(model => model.Windows[0].Material)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Size)
+                @Html.DisplayNameFor(model => model.Windows[0].Size)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Windows[0].Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rating)
+                @Html.DisplayNameFor(model => model.Windows[0].Rating)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Style)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                <a href="/Windows/Edit/4"> Edit </a> |
-                <a href="/Windows/Details/4"> Details </a> |
-                <a href="/Windows/Delete/4"> Delete </a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Windows)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Style)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    <a href="/Windows/Edit/4"> Edit </a> |
+                    <a href="/Windows/Details/4"> Details </a> |
+                    <a href="/Windows/Delete/4"> Delete </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

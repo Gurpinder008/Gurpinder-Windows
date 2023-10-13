@@ -69,6 +69,53 @@ namespace Gurpinder_Windows.Models
                         Size = 9,
                         Price = 500,
                         Rating = 4
+                    },
+
+                    new Window
+                    {
+                        Name = "Arched ",
+                        Style = "Classic",
+                        Material = " Wood",
+                        Size = 6,
+                        Price = 300,
+                        Rating = 4.3m
+                    },
+
+                    new Window
+                    {
+                        Name = "Skylight ",
+                        Style = "Contemporary",
+                        Material = "fiberglass",
+                        Size = 7.5m,
+                        Price = 450.99m,
+                        Rating = 4.4m
+                    },
+                    new Window
+                    {
+                        Name = "Hopper ",
+                        Style = "Industrial",
+                        Material = "Style",
+                        Size = 9,
+                        Price = 500,
+                        Rating = 4
+                    },
+                    new Window
+                    {
+                        Name = "Garden",
+                        Style = "Rustic",
+                        Material = " Wood or Vinyl",
+                        Size = 12,
+                        Price = 750,
+                        Rating = 3.9m
+                    },
+                    new Window
+                    {
+                        Name = "Bay ",
+                        Style = "Architectural",
+                        Material = " Wood",
+                        Size = 11,
+                        Price = 800,
+                        Rating = 4.7m
                     }
                 );
                 context.SaveChanges();
